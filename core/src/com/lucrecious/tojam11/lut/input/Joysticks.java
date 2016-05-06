@@ -34,6 +34,8 @@ public class Joysticks {
             Joystick joystick;
             if (c.getName().toLowerCase().contains("xbox")) {
                 controllers.add(joystick = new Joystick(Profile.Xbox));
+            } else if (c.getName().toLowerCase().contains("wireless controller")) {
+                controllers.add(joystick = new Joystick(Profile.PS4));
             } else {
                 controllers.add(joystick = new Joystick(Profile.Unknown));
             }

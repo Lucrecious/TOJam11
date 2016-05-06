@@ -1,8 +1,7 @@
-package com.lucrecious.tojam11.characters;
+package com.lucrecious.tojam11.entities.characters;
 
 import com.lucrecious.tojam11.lut.Time;
-import com.lucrecious.tojam11.lut.mapping.*;
-import com.nilunder.bdx.Bdx;
+import com.lucrecious.tojam11.lut.mapping.Controller;
 import com.nilunder.bdx.Component;
 import com.nilunder.bdx.State;
 
@@ -14,19 +13,13 @@ public class Movement extends Component{
     private GravitatingEntity entity;
     private Controller cont;
 
-    public Movement(GravitatingEntity g, int jIndex) {
+    public Movement(GravitatingEntity g, Controller cont) {
         super(g);
         entity = g;
-        setup(jIndex);
+        this.cont = cont;
         state(core);
     }
 
-    private void setup(int i) {
-        cont = new PlayerController()
-                .add(new ButtonMap("jump", i, "a", "x"))
-                .add(new StickDirectionalMap("move", 0.3f, "ls", i))
-                .add(new StickDirectionalMap("shoot", 0.5f, "rs", i));
-    }
 
     private State core = new State() {
         public void main() {

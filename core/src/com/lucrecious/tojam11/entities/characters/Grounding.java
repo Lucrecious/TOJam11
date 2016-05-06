@@ -1,4 +1,4 @@
-package com.lucrecious.tojam11.characters;
+package com.lucrecious.tojam11.entities.characters;
 
 import com.lucrecious.tojam11.Constants;
 import com.lucrecious.tojam11.lut.Helper;

@@ -1,4 +1,4 @@
-package com.lucrecious.tojam11.characters;
+package com.lucrecious.tojam11.entities.characters;
 
 import com.badlogic.gdx.graphics.Color;
 import com.lucrecious.tojam11.Constants;

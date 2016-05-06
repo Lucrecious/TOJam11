@@ -1,4 +1,4 @@
-package com.lucrecious.tojam11.characters;
+package com.lucrecious.tojam11.entities.characters;
 
 import com.lucrecious.tojam11.lut.Math;
 import com.nilunder.bdx.Component;
