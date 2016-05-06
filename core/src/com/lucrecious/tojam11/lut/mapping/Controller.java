@@ -34,12 +34,24 @@ public abstract class Controller {
 
     public static boolean buttonAction(String[] buttons, Type type, Status status, Integer jIndex) {
 
-        boolean result = false;
+        boolean result;
 
-        for (String b : buttons) {
-            result = result || buttonAction(b, type, status, jIndex);
+        if (status != Status.Up) {
+            result = false;
+
+            for (String b : buttons) {
+                result = result || buttonAction(b, type, status, jIndex);
+            }
+
+            return result;
+        } else {
+            result = true;
+
+            for (String b : buttons) {
+                result = result && buttonAction(b, type, status, jIndex);
+            }
+
+            return result;
         }
-
-        return result;
     }
 }
