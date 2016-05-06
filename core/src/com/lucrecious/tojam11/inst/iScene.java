@@ -8,8 +8,8 @@ public class iScene extends Instantiator {
 	public GameObject newObject(JsonValue gobj){
 		String name = gobj.name;
 
-		if (gobj.get("class").asString().equals("Sacky"))
-			return new com.lucrecious.tojam11.Sacky();
+		if (gobj.get("class").asString().equals("Player"))
+			return new com.lucrecious.tojam11.characters.Player();
 
 		return super.newObject(gobj);
 	}
