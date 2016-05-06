@@ -1,11 +1,16 @@
 package com.lucrecious.tojam11.entities.characters;
 
+import com.nilunder.bdx.Bdx;
 import com.nilunder.bdx.Component;
 import com.nilunder.bdx.GameObject;
 import com.nilunder.bdx.State;
 
+import javax.vecmath.Vector3f;
+
 public class Health extends Component {
     private LiveEntity entity;
+    private int maxHealth = 100;
+    private int currentHealth = 100;
 
     public Health(LiveEntity g) {
         super(g);
@@ -13,9 +18,41 @@ public class Health extends Component {
         state(core);
     }
 
-    private State core = new State() {
-        public void enter() {
+    protected void setMaxHealth(int health) {
+        maxHealth = currentHealth = health;
+    }
 
+    protected void health(int health) {
+        if (health > maxHealth) {
+            currentHealth = maxHealth;
+        } else if (health < 0) {
+            currentHealth = 0;
+        } else {
+            currentHealth = health;
+        }
+    }
+
+    protected int health() {
+        return currentHealth;
+    }
+
+    private State core = new State()
+    {
+        private GameObject health;
+        public void enter() {
+            health = g.scene.add("G_Health");
+            health.parent(g);
+            health.position(entity.position()
+                    .plus(new Vector3f(0, 0, entity.height() + 0.1f))
+                    .plus(new Vector3f(-entity.width(), 0, 0)));
+        }
+
+        public void main() {
+            health.scale((float)currentHealth/(float)maxHealth, 1, 1);
         }
     };
 }
+
+
+
+

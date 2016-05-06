@@ -15,6 +15,7 @@ public class Player extends LiveEntity {
         setup(playerCount++);
         components.add(new Movement(this, cont));
         components.add(new Shooter(this, cont));
+        health.setMaxHealth(50);
     }
 
     private Controller cont;
