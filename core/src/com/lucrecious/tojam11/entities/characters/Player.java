@@ -12,10 +12,13 @@ public class Player extends LiveEntity {
 
     public void init() {
         super.init();
-        setup(playerCount++);
+        setup(playerCount);
         components.add(new Movement(this, cont));
         components.add(new Shooter(this, cont));
+        components.add(new PlayerAnimation(this, playerCount, cont));
         health.setMaxHealth(50);
+
+        playerCount++;
     }
 
     private Controller cont;

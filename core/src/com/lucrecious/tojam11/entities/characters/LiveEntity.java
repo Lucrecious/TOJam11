@@ -7,6 +7,12 @@ public class LiveEntity extends GravitatingEntity {
         components.add(health = new Health(this));
     }
 
+    public void main() {
+        if (health.health() <= 0) {
+            end();
+        }
+    }
+
     public void restoreHealth(int restoreAmount) {
         health.health(health.health() + restoreAmount);
     }

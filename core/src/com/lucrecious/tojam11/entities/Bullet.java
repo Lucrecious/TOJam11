@@ -1,8 +1,10 @@
 package com.lucrecious.tojam11.entities;
 
 import com.lucrecious.tojam11.entities.characters.LiveEntity;
+import com.lucrecious.tojam11.entities.characters.Player;
 import com.lucrecious.tojam11.lut.Time;
 import com.nilunder.bdx.GameObject;
+import com.nilunder.bdx.components.SpriteAnim;
 
 import javax.vecmath.Vector2f;
 import java.util.ArrayList;
@@ -18,6 +20,11 @@ public class Bullet extends GameObject {
 
     public void init() {
         endTimer.start();
+
+        SpriteAnim anim = new SpriteAnim(children.get("G_Bullet"), 8, 8);
+        anim.add("core", 0, new int[] {0, 1});
+        components.add(anim);
+        anim.play("core");
     }
 
     public void main() {
@@ -41,7 +48,7 @@ public class Bullet extends GameObject {
 
                     if (g instanceof LiveEntity) {
                         LiveEntity entity = (LiveEntity)g;
-                        if (entity.name() == "Player") {
+                        if (entity instanceof Player) {
                             entity.restoreHealth(1);
                         } else {
                             entity.killHealth(1);

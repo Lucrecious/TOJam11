@@ -13,8 +13,8 @@ public class AndroidLauncher extends AndroidApplication {
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-		int width = 800;
-		int height = 450;
+		int width = 1080;
+		int height = 720;
 		config.resolutionStrategy = new RatioResolutionStrategy(width, height);
 		initialize(new BdxApp(), config);
 	}

@@ -44,7 +44,8 @@ public class Health extends Component {
             health.parent(g);
             health.position(entity.position()
                     .plus(new Vector3f(0, 0, entity.height() + 0.1f))
-                    .plus(new Vector3f(-entity.width(), 0, 0)));
+                    .plus(new Vector3f(-entity.width(), 0, 0))
+                    .plus(new Vector3f(0, entity.depth() + 1, 0)));
         }
 
         public void main() {

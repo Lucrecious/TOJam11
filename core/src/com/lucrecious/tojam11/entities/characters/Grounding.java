@@ -50,10 +50,6 @@ public class Grounding extends Component {
         LocalRay groundRayRight = entity.rayMap.get(GravitatingEntity.GroundRayRightHash);
         LocalRay groundRayLeft = entity.rayMap.get(GravitatingEntity.GroundRayLeftHash);
 
-        // Debugging...
-        groundRayRight.debug_cast();
-        groundRayLeft.debug_cast();
-
         RayHit groundHitRight = groundRayRight.findHitByProperty(Constants.GroundProperty);
         RayHit groundHitLeft = groundRayLeft.findHitByProperty(Constants.GroundProperty);
 
