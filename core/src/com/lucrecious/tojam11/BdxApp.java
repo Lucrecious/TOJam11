@@ -13,10 +13,11 @@ public class BdxApp implements ApplicationListener {
 		Bdx.init();
 
 		Scene.instantiators = new HashMap<String, Instantiator>();
-		Scene.instantiators.put("Scene", new com.lucrecious.tojam11.inst.iScene());
+		Scene.instantiators.put("level1", new com.lucrecious.tojam11.inst.ilevel1());
+		Scene.instantiators.put("sky", new com.lucrecious.tojam11.inst.isky());
 
-		Bdx.scenes.add(new Scene("Scene"));
-		Bdx.firstScene = "Scene";
+		Bdx.scenes.add(new Scene("level1"));
+		Bdx.firstScene = "level1";
 	}
 
 	@Override

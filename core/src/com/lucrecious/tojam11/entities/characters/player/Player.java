@@ -7,6 +7,8 @@ import com.lucrecious.tojam11.lut.mapping.ButtonMap;
 import com.lucrecious.tojam11.lut.mapping.Controller;
 import com.lucrecious.tojam11.lut.mapping.PlayerController;
 import com.lucrecious.tojam11.lut.mapping.StickDirectionalMap;
+import com.nilunder.bdx.Bdx;
+import com.nilunder.bdx.Scene;
 
 public class Player extends LiveEntity {
 
@@ -14,6 +16,9 @@ public class Player extends LiveEntity {
 
     public void init() {
         super.init();
+        if (playerCount == 0)
+            Bdx.scenes.add(0, new Scene("sky"));
+
         setup(playerCount);
         components.add(new Movement(this, cont));
         components.add(new Shooter(this, cont));
