@@ -63,7 +63,7 @@ public class Chomper extends Enemy {
 
                         attackDirection.length(entity.width() + 0.1f);
 
-                        ArrayList<RayHit> hits = g.scene.debug_xray(g.position(), attackDirection);
+                        ArrayList<RayHit> hits = g.scene.xray(g.position(), attackDirection);
 
                         for (RayHit hit : hits) {
                             if (hit != null && hit.object == f) {

@@ -12,22 +12,33 @@ import java.util.ArrayList;
 public class Bullet extends GameObject {
     private Vector2f velocity = new Vector2f(0, 0);
     private GameObject creator = null;
+    private boolean playerHeal = false;
+    private int damage = 1;
 
     private final float speed = 0.1f;
     private final float pullForceMag = 150f;
     private final Time.Timer endTimer = new Time.Timer(5f);
 
+    private SpriteAnim anim;
+
 
     public void init() {
         endTimer.start();
 
-        SpriteAnim anim = new SpriteAnim(children.get("G_Bullet"), 8, 8);
-        anim.add("core", 0, new int[] {0, 1});
+        anim = new SpriteAnim(children.get("G_Bullet"), 8, 8);
+        anim.add("core_yellow", 0, new int[] {0, 1});
+        anim.add("core_red", 1, new int[]{0, 1});
         components.add(anim);
-        anim.play("core");
     }
 
     public void main() {
+
+        if (playerHeal) {
+            anim.play("core_yellow");
+        } else {
+            anim.play("core_red");
+        }
+
         move(velocity.x, 0, velocity.y);
 
         boolean hit = false;
@@ -48,10 +59,10 @@ public class Bullet extends GameObject {
 
                     if (g instanceof LiveEntity) {
                         LiveEntity entity = (LiveEntity)g;
-                        if (entity instanceof Player) {
+                        if (playerHeal && entity instanceof Player) {
                             entity.restoreHealth(1);
                         } else {
-                            entity.killHealth(1);
+                            entity.killHealth(damage);
                         }
                     }
 
@@ -61,7 +72,6 @@ public class Bullet extends GameObject {
 
         if (hit || endTimer.finished()) {
             end();
-            return;
         }
     }
 
@@ -75,5 +85,13 @@ public class Bullet extends GameObject {
 
     public void creator(GameObject g) {
         creator = g;
+    }
+
+    public void playerHeal(boolean b) {
+        playerHeal = b;
+    }
+
+    public void damage(int d) {
+        damage = d;
     }
 }

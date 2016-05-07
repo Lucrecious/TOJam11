@@ -19,6 +19,7 @@ public class Player extends LiveEntity {
         components.add(new Shooter(this, cont));
         components.add(new PlayerAnimation(this, playerCount, cont));
         health.setMaxHealth(50);
+        setImmunityTimer(0.3f);
 
         playerCount++;
     }

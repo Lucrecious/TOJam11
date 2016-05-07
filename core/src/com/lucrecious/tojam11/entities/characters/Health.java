@@ -1,5 +1,6 @@
 package com.lucrecious.tojam11.entities.characters;
 
+import com.lucrecious.tojam11.lut.Time;
 import com.nilunder.bdx.Bdx;
 import com.nilunder.bdx.Component;
 import com.nilunder.bdx.GameObject;

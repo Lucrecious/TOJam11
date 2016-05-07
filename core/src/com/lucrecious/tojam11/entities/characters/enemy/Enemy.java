@@ -80,11 +80,21 @@ public abstract class Enemy extends LiveEntity {
         public BasicAnimation(Enemy g) {
             super(g);
             entity = g;
-            anim = new SpriteAnim(g.children.get(0), 16, 16);
+            anim = new SpriteAnim(sprite(), 16, 16);
             anim.add("core", 0, new int[]{0, 1});
             g.components.add(anim);
             anim.play("core");
             state(core);
+        }
+
+        private GameObject sprite() {
+            for (GameObject o : g.children) {
+                if (o.name().startsWith("G_")) {
+                    return o;
+                }
+            }
+
+            return null;
         }
 
         private State core = new State() {

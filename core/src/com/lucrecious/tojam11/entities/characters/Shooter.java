@@ -44,6 +44,7 @@ public class Shooter extends Component{
                     bullet.position(barrel.position());
                     bullet.direction(cont.vector("shoot"));
                     bullet.creator(g);
+                    bullet.playerHeal(true);
 
                     shootTimer.reset();
                     shootTimer.start();
