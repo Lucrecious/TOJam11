@@ -13,7 +13,10 @@ public class BdxApp implements ApplicationListener {
 		Bdx.init();
 
 		Scene.instantiators = new HashMap<String, Instantiator>();
+		Scene.instantiators.put("always", new com.lucrecious.tojam11.inst.ialways());
+		Scene.instantiators.put("gameover", null);
 		Scene.instantiators.put("level1", new com.lucrecious.tojam11.inst.ilevel1());
+		Scene.instantiators.put("menu", new com.lucrecious.tojam11.inst.imenu());
 		Scene.instantiators.put("sky", new com.lucrecious.tojam11.inst.isky());
 
 		Bdx.scenes.add(new Scene("level1"));

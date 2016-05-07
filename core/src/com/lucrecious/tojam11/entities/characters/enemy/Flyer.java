@@ -20,7 +20,7 @@ public class Flyer extends Enemy {
 
     public void init() {
         super.init();
-        movement.setMaxSpeed(5f);
+        movement.maxSpeed(5f);
         health.setMaxHealth(10);
     }
 

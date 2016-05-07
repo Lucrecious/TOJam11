@@ -8,14 +8,16 @@ public class ilevel1 extends Instantiator {
 	public GameObject newObject(JsonValue gobj){
 		String name = gobj.name;
 
-		if (gobj.get("class").asString().equals("Chomper"))
-			return new com.lucrecious.tojam11.entities.characters.enemy.Chomper();
 		if (gobj.get("class").asString().equals("Player"))
 			return new com.lucrecious.tojam11.entities.characters.player.Player();
-		if (gobj.get("class").asString().equals("Bullet"))
-			return new com.lucrecious.tojam11.entities.Bullet();
+		if (gobj.get("class").asString().equals("Chomper"))
+			return new com.lucrecious.tojam11.entities.characters.enemy.Chomper();
 		if (gobj.get("class").asString().equals("Flyer"))
 			return new com.lucrecious.tojam11.entities.characters.enemy.Flyer();
+		if (gobj.get("class").asString().equals("Bullet"))
+			return new com.lucrecious.tojam11.entities.Bullet();
+		if (gobj.get("class").asString().equals("LevelConfig"))
+			return new com.lucrecious.tojam11.entities.LevelConfig();
 		if (gobj.get("class").asString().equals("Bouncer"))
 			return new com.lucrecious.tojam11.entities.characters.enemy.Bouncer();
 

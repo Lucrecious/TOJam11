@@ -1,8 +1,10 @@
 package com.lucrecious.tojam11.entities;
 
 import com.lucrecious.tojam11.entities.characters.LiveEntity;
+import com.lucrecious.tojam11.entities.characters.enemy.Enemy;
 import com.lucrecious.tojam11.entities.characters.player.Player;
 import com.lucrecious.tojam11.lut.Time;
+import com.nilunder.bdx.Bdx;
 import com.nilunder.bdx.GameObject;
 import com.nilunder.bdx.components.SpriteAnim;
 
@@ -54,16 +56,19 @@ public class Bullet extends GameObject {
 
             for (GameObject g : hits) {
                 if (creator == null || (creator != g && !creator.childrenRecursive().contains(g))) {
-                    hit = true;
-                    g.applyForce(pullForce.x, 0, pullForce.y);
-
                     if (g instanceof LiveEntity) {
+                        g.applyForce(pullForce.x, 0, pullForce.y);
+                        hit = true;
                         LiveEntity entity = (LiveEntity)g;
                         if (playerHeal && entity instanceof Player) {
                             entity.restoreHealth(1);
                         } else {
-                            entity.killHealth(damage);
+                            if (!(creator instanceof Enemy && g instanceof Enemy)) {
+                                entity.killHealth(damage);
+                            }
                         }
+                    } else if (g.props.containsKey("ground")) {
+                        hit = true;
                     }
 
                 }

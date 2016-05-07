@@ -22,8 +22,18 @@ public class Movement extends Component{
     }
 
     private float maxSpeed = 3f;
-    public void setMaxSpeed(float speed) {
+    public void maxSpeed(float speed) {
         maxSpeed = speed;
+    }
+
+    private float maxJumpSpeed = 5f;
+    public void maxJumpSpeed(float speed) {
+        maxJumpSpeed = speed;
+    }
+
+    private Time.Timer jumpTimer = new Time.Timer(0.3f);
+    public void jumpTimer(float sec) {
+        jumpTimer = new Time.Timer(sec);
     }
 
 
@@ -40,7 +50,6 @@ public class Movement extends Component{
 
         }
 
-        private Time.Timer jumpTimer = new Time.Timer(0.3f);
         private boolean inJump = false;
         private void handleJumping() {
             if (cont.buttonHit("jump") && entity.grounding.ground() != null) {

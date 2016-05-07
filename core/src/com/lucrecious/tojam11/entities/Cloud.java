@@ -1,6 +1,7 @@
 package com.lucrecious.tojam11.entities;
 
 import com.nilunder.bdx.GameObject;
+import com.nilunder.bdx.components.SpriteAnim;
 
 import javax.vecmath.Vector3f;
 import java.util.Random;
@@ -11,6 +12,8 @@ public class Cloud extends GameObject {
     private Vector3f delta;
 
     private float velocity;
+
+    private SpriteAnim anim;
 
     private Random random;
     public void init() {
@@ -24,6 +27,12 @@ public class Cloud extends GameObject {
         velocity = random.nextFloat();
 
         velocity = (velocity * 0.005f + 0.001f);
+
+
+        anim = new SpriteAnim(this, 16, 16);
+        anim.add("core", 0, new int[]{0, 1});
+        components.add(anim);
+        anim.play("core");
 
         restart();
     }
@@ -46,6 +55,8 @@ public class Cloud extends GameObject {
         }
 
         position(pos);
+
+        anim.speed = random.nextFloat() * 0.1f + 0.01f;
     }
 
     public void main() {

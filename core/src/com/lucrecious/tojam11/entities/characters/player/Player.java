@@ -12,19 +12,20 @@ import com.nilunder.bdx.Scene;
 
 public class Player extends LiveEntity {
 
-    private static int playerCount = 0;
+    public static int playerCount = 0;
+    private Movement movement;
 
     public void init() {
         super.init();
-        if (playerCount == 0)
-            Bdx.scenes.add(0, new Scene("sky"));
-
         setup(playerCount);
-        components.add(new Movement(this, cont));
+        components.add(movement = new Movement(this, cont));
         components.add(new Shooter(this, cont));
         components.add(new PlayerAnimation(this, playerCount, cont));
         health.setMaxHealth(50);
         setImmunityTimer(0.3f);
+
+        movement.maxJumpSpeed(6f);
+        movement.jumpTimer(0.4f);
 
         playerCount++;
     }

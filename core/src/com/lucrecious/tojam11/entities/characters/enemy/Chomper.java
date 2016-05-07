@@ -2,23 +2,20 @@ package com.lucrecious.tojam11.entities.characters.enemy;
 
 import com.lucrecious.tojam11.entities.characters.LiveEntity;
 import com.lucrecious.tojam11.entities.characters.player.Player;
-import com.lucrecious.tojam11.lut.Math;
 import com.lucrecious.tojam11.lut.mapping.AIController;
-import com.nilunder.bdx.GameObject;
 import com.nilunder.bdx.RayHit;
 import com.nilunder.bdx.State;
 
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class Chomper extends Enemy {
 
     public void init() {
         super.init();
 
-        movement.setMaxSpeed(1f);
+        movement.maxSpeed(1f);
     }
 
     @Override
