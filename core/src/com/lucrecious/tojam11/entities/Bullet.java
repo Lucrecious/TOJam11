@@ -1,7 +1,7 @@
 package com.lucrecious.tojam11.entities;
 
 import com.lucrecious.tojam11.entities.characters.LiveEntity;
-import com.lucrecious.tojam11.entities.characters.Player;
+import com.lucrecious.tojam11.entities.characters.player.Player;
 import com.lucrecious.tojam11.lut.Time;
 import com.nilunder.bdx.GameObject;
 import com.nilunder.bdx.components.SpriteAnim;

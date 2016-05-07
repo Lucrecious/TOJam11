@@ -11,7 +11,9 @@ public class iScene extends Instantiator {
 		if (gobj.get("class").asString().equals("Bullet"))
 			return new com.lucrecious.tojam11.entities.Bullet();
 		if (gobj.get("class").asString().equals("Player"))
-			return new com.lucrecious.tojam11.entities.characters.Player();
+			return new com.lucrecious.tojam11.entities.characters.player.Player();
+		if (gobj.get("class").asString().equals("Chomper"))
+			return new com.lucrecious.tojam11.entities.characters.enemy.Chomper();
 
 		return super.newObject(gobj);
 	}

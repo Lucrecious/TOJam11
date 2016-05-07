@@ -1,10 +1,12 @@
-package com.lucrecious.tojam11.entities.characters;
+package com.lucrecious.tojam11.entities.characters.player;
 
+import com.lucrecious.tojam11.entities.characters.LiveEntity;
+import com.lucrecious.tojam11.entities.characters.Movement;
+import com.lucrecious.tojam11.entities.characters.Shooter;
 import com.lucrecious.tojam11.lut.mapping.ButtonMap;
 import com.lucrecious.tojam11.lut.mapping.Controller;
 import com.lucrecious.tojam11.lut.mapping.PlayerController;
 import com.lucrecious.tojam11.lut.mapping.StickDirectionalMap;
-import com.nilunder.bdx.Bdx;
 
 public class Player extends LiveEntity {
 

@@ -1,6 +1,7 @@
 package com.lucrecious.tojam11.entities.characters;
 
 import com.lucrecious.tojam11.Constants;
+import com.lucrecious.tojam11.entities.GravitatingEntity;
 import com.lucrecious.tojam11.lut.Helper;
 import com.lucrecious.tojam11.lut.LocalRay;
 import com.lucrecious.tojam11.lut.Math;

@@ -1,5 +1,7 @@
 package com.lucrecious.tojam11.entities.characters;
 
+import com.lucrecious.tojam11.entities.GravitatingEntity;
+
 public class LiveEntity extends GravitatingEntity {
     protected Health health;
     public void init() {

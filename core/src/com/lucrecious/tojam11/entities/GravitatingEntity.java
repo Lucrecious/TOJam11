@@ -1,5 +1,8 @@
-package com.lucrecious.tojam11.entities.characters;
+package com.lucrecious.tojam11.entities;
 
+import com.lucrecious.tojam11.entities.characters.Gravitator;
+import com.lucrecious.tojam11.entities.characters.Grounding;
+import com.lucrecious.tojam11.entities.characters.YLock;
 import com.lucrecious.tojam11.lut.DimensionalGameObject;
 import com.lucrecious.tojam11.lut.LocalizedRayMap;
 import com.lucrecious.tojam11.lut.Math;
@@ -30,8 +33,8 @@ public class GravitatingEntity extends DimensionalGameObject {
 ;
     }
 
-    protected Grounding grounding;
-    protected Gravitator gravitator;
+    public Grounding grounding;
+    public Gravitator gravitator;
 
     public LocalizedRayMap rayMap = new LocalizedRayMap(this);
 

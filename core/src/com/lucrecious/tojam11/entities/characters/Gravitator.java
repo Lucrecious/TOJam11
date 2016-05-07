@@ -2,6 +2,7 @@ package com.lucrecious.tojam11.entities.characters;
 
 import com.badlogic.gdx.graphics.Color;
 import com.lucrecious.tojam11.Constants;
+import com.lucrecious.tojam11.entities.GravitatingEntity;
 import com.lucrecious.tojam11.lut.Math;
 import com.nilunder.bdx.Component;
 import com.nilunder.bdx.GameObject;

@@ -18,11 +18,11 @@ public class Health extends Component {
         state(core);
     }
 
-    protected void setMaxHealth(int health) {
+    public void setMaxHealth(int health) {
         maxHealth = currentHealth = health;
     }
 
-    protected void health(int health) {
+    public void health(int health) {
         if (health > maxHealth) {
             currentHealth = maxHealth;
         } else if (health < 0) {
@@ -32,7 +32,7 @@ public class Health extends Component {
         }
     }
 
-    protected int health() {
+    public int health() {
         return currentHealth;
     }
 

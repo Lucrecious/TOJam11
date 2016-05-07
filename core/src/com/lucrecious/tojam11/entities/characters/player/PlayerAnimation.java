@@ -1,5 +1,6 @@
-package com.lucrecious.tojam11.entities.characters;
+package com.lucrecious.tojam11.entities.characters.player;
 
+import com.lucrecious.tojam11.entities.characters.LiveEntity;
 import com.lucrecious.tojam11.lut.Math;
 import com.lucrecious.tojam11.lut.mapping.Controller;
 import com.nilunder.bdx.Bdx;

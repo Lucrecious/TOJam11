@@ -1,5 +1,6 @@
 package com.lucrecious.tojam11.entities.characters;
 
+import com.lucrecious.tojam11.entities.GravitatingEntity;
 import com.lucrecious.tojam11.lut.Time;
 import com.lucrecious.tojam11.lut.mapping.Controller;
 import com.nilunder.bdx.Component;
@@ -20,6 +21,11 @@ public class Movement extends Component{
         state(core);
     }
 
+    private float maxSpeed = 3f;
+    public void setMaxSpeed(float speed) {
+        maxSpeed = speed;
+    }
+
 
     private State core = new State() {
         public void main() {
@@ -30,7 +36,7 @@ public class Movement extends Component{
         private void handleMovement() {
             Vector2f move = entity.localizeController(cont.vector("move"));
 
-            entity.applyForceForSpeed(3f*move.x, entity.localize(new Vector3f(1, 0 ,0)), 0.05f);
+            entity.applyForceForSpeed(maxSpeed*move.x, entity.localize(new Vector3f(1, 0 ,0)), 0.05f);
 
         }
 
@@ -48,7 +54,7 @@ public class Movement extends Component{
             }
 
             if (inJump) {
-                entity.applyForceForSpeed(4f, entity.localize(new Vector3f(0, 0, 1)), 0.05f);
+                entity.applyForceForSpeed(5f, entity.localize(new Vector3f(0, 0, 1)), 0.05f);
             }
         }
     };
